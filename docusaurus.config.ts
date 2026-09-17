@@ -81,6 +81,13 @@ const config: Config = {
             { label: "Reed", href: "https://github.com/PSLoom/Reed" },
           ],
         },
+        {
+          title: "Legal",
+          items: [
+            { label: "Code of Conduct", to: "/legal/CODE_OF_CONDUCT" },
+            { label: "Privacy Policy", to: "/legal/PRIVACY" },
+          ],
+        },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Bruno Sales. MIT License.`,
     },
