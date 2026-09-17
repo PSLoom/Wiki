@@ -31,7 +31,7 @@ The site lives under `/wiki/`. The build writes `build/`, checks Markdown/site l
 | [docs/modules/psloom](docs/modules/psloom/reference.md)      | Kernel overview and handwritten reference       |
 | [docs/modules/reed](docs/modules/reed/reference.md)          | Reed DSL, sources/cache, JSON and reference     |
 | [docs/modules](docs/modules/colorway.md)                     | Planned Colorway, Weft and Shuttle harnesses    |
-| [docs/architecture](docs/architecture/overview.md)           | Architecture diagrams and invariants            |
+| [docs/architecture](docs/architecture/overview.md)           | Architecture and component relationships        |
 | [docs/contributing](docs/contributing/development-setup.md)  | Harness authoring, SDK setup and repository map |
 
 ## Writing documentation

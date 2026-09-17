@@ -6,9 +6,8 @@ sidebar_position: 1
 PSLoom gives PowerShell 7.6+ the shell ergonomics of zsh and fish — a declarative profile, styles, hooks, parameterized
 aliases, and completion for native commands — as a small kernel plus harnesses that plug into it.
 
-This document describes how the pieces fit and where each rule is enforced. The design record, with every decision
-and its alternatives, is the design record; the rules that must never regress are in [invariants.md](invariants.md);
-writing a harness is covered in [harness authoring](../contributing/harness-authoring.md).
+This document describes how the pieces fit together. For guidance on writing a harness, see
+[harness authoring](../contributing/harness-authoring.md).
 
 ## Assemblies and dependency rules
 
