@@ -88,7 +88,22 @@ dotnet run -c Release --project benchmarks/PSLoom.Reed.Benchmarks -- --filter '*
 pwsh -NoProfile -File ./benchmarks/Assert-Budgets.ps1
 ```
 
-When testing a local SDK, add the same `-p:PSLoomVersion` to `dotnet run` **before** `--`. `--job short` is for a quick local budget check; CI runs the prescribed benchmark jobs. Reed owns the typical draft startup budget and three completion budgets. Its process tests enforce that only the kernel's Warp assembly is loaded.
+When testing a local SDK, set environment variables before `dotnet run` so BenchmarkDotNet's generated child projects inherit the SDK selection. Those projects do not inherit the parent command's `-p:PSLoomVersion` argument. Use the `$sdkVersion` from the local SDK loop:
+
+```powershell
+$env:PSLoomVersion = $sdkVersion
+# Only for packages outside ~/.psloom/packages:
+# $env:PSLoomLocalPackageSource = 'D:\psloom\repos\PSLoom\artifacts\packages'
+try {
+    dotnet run -c Release --project benchmarks/PSLoom.Reed.Benchmarks -- --filter '*CompletionBenchmarks*' --exporters json --job short
+} finally {
+    Remove-Item Env:PSLoomVersion
+    Remove-Item Env:PSLoomLocalPackageSource -ErrorAction SilentlyContinue
+}
+pwsh -NoProfile -File ./benchmarks/Assert-Budgets.ps1
+```
+
+Remove these environment variables when returning to the pinned release SDK; the example cleans them up after the run. `--job short` is for a quick local budget check; CI runs the prescribed benchmark jobs. Reed owns the typical draft startup budget and three completion budgets. Its process tests enforce that only the kernel's Warp assembly is loaded.
 
 ## Wiki
 
