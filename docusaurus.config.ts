@@ -7,7 +7,7 @@ const config: Config = {
   favicon: "img/logo.png",
   tagline: "The shell-ergonomics layer PowerShell never shipped with",
   url: "https://psloom.github.io",
-  baseUrl: "/wiki/",
+  baseUrl: "/Wiki/",
   organizationName: "PSLoom",
   projectName: "wiki",
   trailingSlash: false,
