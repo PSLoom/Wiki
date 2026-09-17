@@ -2,12 +2,16 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
+// GitHub Pages serves the site from the custom domain https://wiki.psloom.dev,
+// so the deployed build lives at the root. Locally the site is served under /wiki.
+const isPagesDeploy = process.env.DEPLOY_TARGET === "pages";
+
 const config: Config = {
   title: "PSLoom",
   favicon: "img/logo.png",
   tagline: "The shell-ergonomics layer PowerShell never shipped with",
-  url: "https://psloom.github.io",
-  baseUrl: "/Wiki/",
+  url: isPagesDeploy ? "https://wiki.psloom.dev" : "http://localhost:3000",
+  baseUrl: isPagesDeploy ? "/" : "/wiki/",
   organizationName: "PSLoom",
   projectName: "wiki",
   trailingSlash: false,
