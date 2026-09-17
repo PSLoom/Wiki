@@ -4,6 +4,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
   title: "PSLoom",
+  favicon: "img/logo.png",
   tagline: "The shell-ergonomics layer PowerShell never shipped with",
   url: "https://psloom.github.io",
   baseUrl: "/wiki/",
@@ -43,8 +44,10 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    colorMode: { respectPrefersColorScheme: true },
     navbar: {
       title: "PSLoom",
+      logo: { alt: "", src: "img/logo.png" },
       items: [
         {
           type: "docSidebar",
@@ -52,6 +55,7 @@ const config: Config = {
           position: "left",
           label: "Docs",
         },
+        { to: "/modules/reed/overview", label: "Reed", position: "left" },
         {
           href: "https://github.com/PSLoom",
           label: "GitHub",
@@ -62,6 +66,14 @@ const config: Config = {
     footer: {
       style: "dark",
       links: [
+        {
+          title: "Documentation",
+          items: [
+            { label: "Get started", to: "/getting-started/installation" },
+            { label: "Your first draft", to: "/getting-started/first-draft" },
+            { label: "Architecture", to: "/architecture/overview" },
+          ],
+        },
         {
           title: "Repositories",
           items: [
@@ -74,7 +86,7 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      darkTheme: prismThemes.vsDark,
       additionalLanguages: ["powershell", "csharp"],
     },
   } satisfies Preset.ThemeConfig,
