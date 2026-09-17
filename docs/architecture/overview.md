@@ -80,7 +80,7 @@ sequenceDiagram
     Host->>DSL: Execute rewritten draft
     DSL->>Queue: Capture deferred statements
     DSL-->>Host: Collected errors and timings
-    Host-->>User: Report errors; SessionStarting on first weave
+    Host-->>User: Report errors, SessionStarting on first weave
     Note over Queue: PrePrompt / Idle slices, missed-command drain,<br/>or non-interactive draft-end drain
 ```
 
